@@ -22,12 +22,12 @@ const create = catchError(async (req, res) => {
 
 const remove = catchError(async (req, res) => {
   const { id } = req.params;
-  await User.destroy({
+  const user = await User.destroy({
     where: {
       id,
     },
   });
-  return res.status(204);
+  return res.status(204).json(user);
 });
 
 update = catchError(async (req, res) => {

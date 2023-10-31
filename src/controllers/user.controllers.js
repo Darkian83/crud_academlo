@@ -22,7 +22,7 @@ const create = catchError(async (req, res) => {
 
 const remove = catchError(async (req, res) => {
   const { id } = req.params;
-  const user = await User.destroy({
+  await User.destroy({
     where: {
       id,
     },
